@@ -12,13 +12,13 @@ button_1 = KeyboardButton('/help')
 button_2 = KeyboardButton('/photomeow')
 button_3 = KeyboardButton('/location')
 button_4 = KeyboardButton("❤️💋❤️")
-button_5 = KeyboardButton("/usemeplease")
+button_5 = KeyboardButton("/genshininfo")
 kb.add(button_1).add(button_2).add(button_3).add(button_4).add(button_5)
 
 
 ikb = InlineKeyboardMarkup(row_width=2)
-ib_1 = InlineKeyboardButton(text="Button 1", url="https://wotpack.ru/slivy-genshin-impact-3-5-data-vyhoda-bannery-i-personazhi/")
-ib_2 = InlineKeyboardButton(text="Button 2", url="https://dtf.ru/s/gachahell/801821-statistika-vypadeniya-garantov-v-genshin-impact-na-osnove-bolee-24-millionov-rollov")
+ib_1 = InlineKeyboardButton(text="Сливы Genshin Impact 3.5", url="https://wotpack.ru/slivy-genshin-impact-3-5-data-vyhoda-bannery-i-personazhi/")
+ib_2 = InlineKeyboardButton(text="Статистика выпадения гарантов", url="https://dtf.ru/s/gachahell/801821-statistika-vypadeniya-garantov-v-genshin-impact-na-osnove-bolee-24-millionov-rollov")
 ikb.add(ib_1, ib_2)
 
 
@@ -27,7 +27,7 @@ HELP_COMMAND = """
 <b>/start</b> - <em>старт бота</em>
 <b>/photomeow</b> - <em>фото</em>
 <b>/location</b> - <em>локация бота</em>
-<b>/ucantrustme</b> - <em> геншин ворлд </em>
+<b>/genshininfo</b> - <em> геншин ворлд </em>
 """
 
 @dp.message_handler(commands=["help"])
@@ -52,6 +52,12 @@ async def send_location_mew(message: types.Message):
     await message.answer("Что я тут забыл ###@#$$#@ $#%#@$%!?")
     await bot.send_location(chat_id=message.chat.id,latitude=45, longitude=60)
     await message.delete()
+@dp.message_handler(commands=["genshininfo"])
+async def send_u_cant_trust(message: types.Message):
+    await message.answer("Тут вся информация про геншин, читай и наслождайся")
+    await bot.send_photo(chat_id=message.chat.id, photo="https://i.pinimg.com/474x/74/b6/a0/74b6a08e4ef7669d8563c57cd102b69f.jpg")
+    await bot.send_message(chat_id=message.chat.id, text="Genshin World", reply_markup=ikb)
+    await message.delete()
 
 @dp.message_handler()
 async def send_cat(message: types.Message):
@@ -59,13 +65,13 @@ async def send_cat(message: types.Message):
         await bot.send_sticker(chat_id=message.chat.id, sticker="CAACAgIAAxkBAAEHWThjyaOznayhb3hZovWiGNqp_F7L9wACegADXy9bEUMl6MSh12h7LQQ")
 
 
-@dp.message_handler(commands=["usemeplease"])
-async def send_u_cant_trust(message: types.Message):
-    await bot.send_message(chat_id=message.chat.id, text="Genshin World", reply_markup=ikb)
-    await message.delete()
+
+
+
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
