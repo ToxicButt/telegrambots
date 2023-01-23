@@ -49,7 +49,7 @@ async def send_message_start(message: types.Message):
 
 @dp.message_handler(commands=['location'])
 async def send_location_mew(message: types.Message):
-    await message.answer("Что я тут забыл ###@#$$#@ $#%#@$%!?")
+    await message.answer("Что я тут забыл ?")
     await bot.send_location(chat_id=message.chat.id,latitude=45, longitude=60)
     await message.delete()
 @dp.message_handler(commands=["genshininfo"])
@@ -62,7 +62,7 @@ async def send_u_cant_trust(message: types.Message):
 @dp.message_handler()
 async def send_cat(message: types.Message):
     if message.text == "❤️💋❤️":
-        await bot.send_sticker(chat_id=message.chat.id, sticker="CAACAgIAAxkBAAEHWThjyaOznayhb3hZovWiGNqp_F7L9wACegADXy9bEUMl6MSh12h7LQQ")
+        await bot.send_sticker(chat_id=message.chat.id, sticker="CAACAgIAAxkBAAEHZOdjzjZpm8f_rc4sWLdeOox-2DJr4gACPBQAAmK0KEgiRJaM6n8MVC0E")
 
 
 
